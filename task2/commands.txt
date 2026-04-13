@@ -1,0 +1,5 @@
+sudo mkdir -p /data/downward
+kubectl apply -f downward-pv.yaml
+kubectl apply -f downward-pvc.yaml
+kubectl apply -f downward-deployment.yaml
+kubectl exec deploy/downward-deployment -- cat /usr/share/nginx/html/index.html

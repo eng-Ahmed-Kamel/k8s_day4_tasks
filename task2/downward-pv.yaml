@@ -1,0 +1,13 @@
+# downward-pv.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: downward-pv
+spec:
+  capacity:
+    storage: 100Mi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /data/downward

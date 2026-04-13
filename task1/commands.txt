@@ -1,0 +1,7 @@
+# Run on the node (or via SSH into the node)
+sudo mkdir -p /data/nginx
+echo "Ahmed Kamel" | sudo tee /data/nginx/index.html
+kubectl apply -f nginx-pv.yaml
+kubectl apply -f nginx-pvc.yaml
+kubectl apply -f nginx-deployment.yaml
+kubectl get pods -o wide   # all 3 pods should be on the same node
