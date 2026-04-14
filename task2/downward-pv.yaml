@@ -9,5 +9,6 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
+  storageClassName: ""        # ← add this
   hostPath:
     path: /data/downward

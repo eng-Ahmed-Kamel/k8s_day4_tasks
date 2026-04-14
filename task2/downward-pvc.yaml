@@ -9,4 +9,5 @@ spec:
   resources:
     requests:
       storage: 100Mi
+  storageClassName: ""        # ← add this
   volumeName: downward-pv
