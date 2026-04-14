@@ -1,0 +1,22 @@
+# pod1.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod1
+spec:
+  containers:
+    - name: nginx
+      image: nginx:alpine
+      env:
+        - name: TREE1                    # env var from trauerweide ConfigMap
+          valueFrom:
+            configMapKeyRef:
+              name: trauerweide
+              key: tree
+      volumeMounts:
+        - name: birke-vol
+          mountPath: /etc/birke          # all keys of birke available here
+  volumes:
+    - name: birke-vol
+      configMap:
+        name: birke

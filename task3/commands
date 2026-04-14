@@ -1,0 +1,23 @@
+sudo tee /opt/cm.yaml <<'EOF'
+apiVersion: v1
+data:
+  tree: birke
+  level: "3"
+  department: park
+kind: ConfigMap
+metadata:
+  name: birke
+EOF
+
+kubectl apply -f /opt/cm.yaml
+kubectl create configmap trauerweide --from-literal=tree=trauerweide
+kubectl get configmap trauerweide -o yaml
+kubectl apply -f pod1.yaml
+
+# Verify TREE1 env var:
+kubectl exec pod1 -- env | grep TREE1
+# Verify birke files under /etc/birke/:
+kubectl exec pod1 -- ls /etc/birke/
+kubectl exec pod1 -- cat /etc/birke/tree
+kubectl exec pod1 -- cat /etc/birke/level
+kubectl exec pod1 -- cat /etc/birke/department
