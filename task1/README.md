@@ -2,7 +2,7 @@
 
 > **Topics covered:** hostPath PV · PersistentVolumeClaim · Retain policy · ReadWriteMany · NodeSelector
 ---
-![Topology](./task1/topology.png)
+![Topology](task1/topology.png)
 ---
 
 ## Overview
@@ -145,7 +145,7 @@ kubectl get pods -o wide
 ```
 ---
 # output 
-![o/p](./task1/1.1.png)
+![o/p](task1/1.png)
 
 ---
 
